@@ -1,10 +1,20 @@
 import express from 'express';
 import cors from 'cors';
 import nodemailer from 'nodemailer';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
+const port = process.env.PORT || 3000;
+
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from the dist directory
+app.use(express.static(join(__dirname, 'dist')));
 
 app.post('/send-email', async (req, res) => {
   console.log('Received request body:', JSON.stringify(req.body, null, 2));
@@ -88,7 +98,12 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error', details: err.message });
 });
 
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
+// Serve index.html for all other routes
+app.get('*', (req, res) => {
+  res.sendFile(join(__dirname, 'dist', 'index.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
   console.log('Ready to receive contact form submissions');
 });
