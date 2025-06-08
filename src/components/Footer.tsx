@@ -19,7 +19,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <p className="text-gray-400 text-xs sm:text-sm">© {new Date().getFullYear()} All rights reserved</p>
+            <p className="text-gray-400 text-xs sm:text-sm">© {new Date().getFullYear()} build by BHOLU</p>
           </div>
         </div>
       </div>
