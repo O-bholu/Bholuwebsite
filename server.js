@@ -16,7 +16,8 @@ app.use(express.json());
 // Serve static files from the dist directory
 app.use(express.static(join(__dirname, 'dist')));
 
-app.post('/send-email', async (req, res) => {
+// API Routes
+app.post('/api/send-email', async (req, res) => {
   console.log('Received request body:', JSON.stringify(req.body, null, 2));
 
   // Validate required fields
@@ -98,8 +99,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error', details: err.message });
 });
 
-// Serve index.html for all other routes
-app.get('/*', (req, res) => {
+// Handle all other routes by serving the index.html
+app.use((req, res) => {
   res.sendFile(join(__dirname, 'dist', 'index.html'));
 });
 

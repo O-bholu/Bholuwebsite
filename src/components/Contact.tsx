@@ -24,7 +24,7 @@ const Contact = () => {
     console.log('Sending form data:', formData);
 
     try {
-      const response = await fetch('http://localhost:3000/send-email', {
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
 
-      const responseData = await response.text();
+      const responseData = await response.json();
       console.log('Server response:', responseData);
 
       if (response.ok) {
@@ -43,7 +43,7 @@ const Contact = () => {
         setSubject('');
         setMessage('');
       } else {
-        setStatus(`Failed to send message: ${responseData}`);
+        setStatus(`Failed to send message: ${responseData.error || responseData.details || 'Unknown error'}`);
       }
     } catch (error) {
       console.error('Error sending message:', error);
