@@ -99,7 +99,7 @@ app.use((err, req, res, next) => {
 });
 
 // Serve index.html for all other routes
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(join(__dirname, 'dist', 'index.html'));
 });
 

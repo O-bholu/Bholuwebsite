@@ -9,4 +9,4 @@ services:
         value: production
       - key: PORT
         value: 10000
-    nodeVersion: 18.17.0 
+    nodeVersion: 24.1.0 
