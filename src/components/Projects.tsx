@@ -1,4 +1,6 @@
 import { Github, ExternalLink, Code } from 'lucide-react';
+import project2Image from '/assets/project2.png';
+import project3Image from '/assets/project3.jpg';
 
 const Projects = () => {
   const projects = [
@@ -17,7 +19,7 @@ const Projects = () => {
       id: 2,
       title: 'CGPA Predictor',
       description: 'A responsive CGPA predictor app built with React, TypeScript, Vite, and TailwindCSS. It features modular components, interactive charts, and fast performance for accurate CGPA estimation across devices..',
-      image: '/assets/project2.png',
+      image: project2Image,
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js'],
       links: {
         github: 'https://github.com/O-bholu/CGPA_Prediction_App',
@@ -28,7 +30,7 @@ const Projects = () => {
       id: 3,
       title: 'CodeTogether',
       description: 'This project is a powerful real-time collaborative code editor designed to enhance the way developers, students, and teams write and run code together. It combines the functionality of a modern code editor with advanced features like multi-user collaboration, AI assistance, live chat, and screen sharing, all in one seamless platform.',
-      image: '/assets/project3.jpg',
+      image: project3Image,
       technologies: ['React.js', 'Tailwind CSS', 'Node.js', 'Socket.IO.'],
       links: {
         github: 'https://github.com/O-bholu/',
